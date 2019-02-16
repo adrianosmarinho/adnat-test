@@ -3,7 +3,8 @@
 <h1>Adnat</h1>
 <p> 
     <%= "Logged in as " + @user.name %>
-    <%= link_to "Log Out", '#' %>
+    
+    <%= link_to "Log Out", logout_path, method: :delete %>
 </p>
 
 <p> Future code to list and join organisations </p>

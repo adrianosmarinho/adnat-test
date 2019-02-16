@@ -1,0 +1,22 @@
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+<!-- Testing HTML Comment -->
+<!-- Session does not have a model, so we pass the resource and the url -->
+
+<%= form_for(:session, url: login_path) do |f| %>
+    <p>
+        <%= f.label :email %><br>
+        <%= f.email_field :email, class: 'form-control' %>
+    </p>  
+
+    <p>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, class: 'form-control' %>
+    </p>
+
+    <p>
+        <%= f.submit "Log in", class: "btn btn-primary" %>
+    </p>  
+<% end %>
+
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>

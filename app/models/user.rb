@@ -3,6 +3,8 @@ class User < ApplicationRecord
     #therefore User (and other models) come with a lot of methods that allows us to interact
     #with the database and other stuff
 
+    
+
     #makes it downcase before saving
     before_save { self.email = email.downcase }
 

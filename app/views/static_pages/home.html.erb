@@ -1,9 +1,16 @@
 <% provide(:title, "Home") %>
 <h1>Adnat</h1>
+<!-- Testing the login function -->
+<% if logged_in? %>
+  <p>
+    Logged in as: <% current_user.name %><br>
+    <%= link_to "Check your profile page!", current_user %>
+  <p>
+<% else %>
 <p> Welcome to Adnat, please choose one of the options below: </p>
 <ul>
   <li><%= link_to "Sign Up", signup_path %></li>
-  <li><%= link_to "Log In", '#' %></li>
+  <li><%= link_to "Log In", login_path %></li>
   <li><%= link_to "Forgot my password", '#' %></li>
   <li><%= link_to "About", about_path %></li>
 </ul>
@@ -14,3 +21,4 @@
   <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
   sample application.
 </p>
+<% end %>
