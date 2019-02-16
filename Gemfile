@@ -54,6 +54,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   #gem 'chromedriver-helper'
   gem 'chromedriver-helper', '1.2.0' #this workaround was necessary to make the tests run on windows
+  gem 'rails-controller-testing' #for using assert_template
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
