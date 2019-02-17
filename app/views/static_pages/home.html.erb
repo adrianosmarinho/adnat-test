@@ -3,7 +3,7 @@
 <!-- Testing the login function -->
 <% if logged_in? %>
   <p>
-    Logged in as: <% current_user.name %><br>
+    Logged in as: <%= current_user.name %><br>
     <%= link_to "Check your profile page!", current_user %>
   <p>
 <% else %>

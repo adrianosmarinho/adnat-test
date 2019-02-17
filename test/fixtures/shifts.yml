@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+#empty for now
+#one:
+#  start: 2019-02-17 09:49:56
+#  finish: 2019-02-17 09:49:56
+#  break_length: 1
+#  user: one
+
+#two:
+#  start: 2019-02-17 09:49:56
+#  finish: 2019-02-17 09:49:56
+#  break_length: 1
+#  user: two

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :shifts
     #just a reminder that ApplicationRecord inherits from ActiveRecord::Base
     #therefore User (and other models) come with a lot of methods that allows us to interact
     #with the database and other stuff

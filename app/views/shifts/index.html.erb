@@ -1,0 +1,56 @@
+<%-# TODO: Check if i need to change the title here -%>
+<% provide(:title, "User Shifts") %>
+<h1>Adnat</h1>
+<p> 
+    <%= "Logged in as " + current_user.name %>
+    <%= link_to "Log Out", logout_path, method: :delete %>
+    <%= link_to "Back to user home", current_user %>
+</p>
+<p> Here are the shifts </p>
+<% if !current_user.shifts.empty?%>
+    <!-- Drawing the shifts table -->
+    <table>
+        <tr>
+            <th>Employee Name</th>
+            <th>Shift Date</th>
+            <th>Start Time</th>
+            <th>Finish Time</th>
+            <th>Break Length (in minutes)</th>
+            <th>Hours Worked</th>
+            <th>Shift Cost</th>
+        </tr>
+
+        <% current_user.shifts.each do |shift| %>
+        <tr>
+            <td><%= current_user.name %></td>
+            <td><%= shift.start.strftime("%d/%m/%Y") %></td>
+            <td><%= shift.start.strftime("%I:%M%p") %></td>
+            <td><%= shift.finish.strftime("%I:%M%p") %></td>
+            <td><%= shift.break_length %></td>
+            <td><%= (((shift.finish - shift.start) - (shift.break_length * 60)) / 3600).round(1) %></td>
+            <td>Insert shift cost</td>
+        </tr>
+        <% end %>
+    </table>
+<% else %>
+    <p> There are no shifts yet for this user </p>
+<% end %>
+
+
+<h2>Create a new shift </h2>
+
+<%= form_with(model: [ current_user, current_user.shifts.build ], local: true) do |f| %>
+
+    <!-- TODO: insert code for error messages -->
+    
+    <p><%= f.label :start %><br>
+    <%= f.datetime_select :start %></p>
+
+    <p><%= f.label :finish %><br>
+    <%= f.datetime_select :finish %></p>
+
+    <p><%= f.label :break_length %><br>
+    <%= f.number_field :break_length %></p>
+
+    <p><%= f.submit "Create new shift!" %></p>
+<% end %>
