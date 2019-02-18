@@ -2,11 +2,11 @@
 <% provide(:title, "User Shifts") %>
 <h1>Adnat</h1>
 <p> 
-    <%= "Logged in as " + current_user.name %>
+    <%= "These are the shifts of " + current_user.name %>
     <%= link_to "Log Out", logout_path, method: :delete %>
     <%= link_to "Back to user home", current_user %>
 </p>
-<p> Here are the shifts </p>
+
 <% if !current_user.shifts.empty?%>
     <!-- Drawing the shifts table -->
     <table>

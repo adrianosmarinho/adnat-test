@@ -1,0 +1,23 @@
+<h1>Organisations</h1>
+<%-# TODO: Check if i need to change the title here -%>
+<% provide(:title, "User - Create Organisation") %>
+<h1>Adnat</h1>
+<p> 
+    <%= "Logged in as " + current_user.name %>
+    
+    <%= link_to "Log Out", logout_path, method: :delete %>
+    <%= link_to "Back to User Home", current_user %>
+
+    <%= form_for(@organisation) do |f| %>
+
+        <!-- TODO: check for shared error messages -->
+        
+        <p><%= f.label :name %><br>
+        <%= f.text_field :name %></p>
+    
+        <p><%= f.label :hourly_rate, "Hourly rate $:" %><br>
+        <%= f.number_field :hourly_rate %></p>
+    
+        <p><%= f.submit "Create and Join" %></p>
+    <% end %>
+</p>

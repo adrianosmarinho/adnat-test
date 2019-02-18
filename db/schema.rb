@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_234955) do
+ActiveRecord::Schema.define(version: 2019_02_17_033705) do
+
+  create_table "organisations", force: :cascade do |t|
+    t.string "name"
+    t.integer "hourly_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "shifts", force: :cascade do |t|
     t.datetime "start"
@@ -28,7 +35,9 @@ ActiveRecord::Schema.define(version: 2019_02_16_234955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.integer "organisation_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["organisation_id"], name: "index_users_on_organisation_id"
   end
 
 end

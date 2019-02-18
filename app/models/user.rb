@@ -1,5 +1,8 @@
 class User < ApplicationRecord
     has_many :shifts
+    # note: i had to comment the belongs_to :organisation so whoever is testing the system is 
+    # able to create a new user, otherwise rails will not allow to create a user without an organisation
+    #belongs_to :organisation
     #just a reminder that ApplicationRecord inherits from ActiveRecord::Base
     #therefore User (and other models) come with a lot of methods that allows us to interact
     #with the database and other stuff

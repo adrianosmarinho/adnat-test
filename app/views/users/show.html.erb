@@ -7,8 +7,27 @@
     <%= link_to "Log Out", logout_path, method: :delete %>
 </p>
 
-<p> Future code to list and join organisations (if belongs to organisation) </p>
-<p> Do something </p>
+
+<% organisations = getAllOrganisations %>
+<% if !organisations.empty? %>
+    <% if !current_user.organisation_id.nil?%>
+        <p>List organisations for current_user</p>
+    <% else %>
+        <p>Currently you do not belong to any organisation. </p>
+        <p>Please choose one of the organisations below or <%= link_to "Create and Join an organisation", new_organisation_path %> </p>
+        <ul>
+        <% @organisations.each do |organisation| %>
+              <li><%= organisation.name %>              
+              <%= link_to 'Edit', '#' %>
+              <%= link_to 'Join', '#' %></li>
+        <% end %>
+        </ul>
+    <% end %>
+<% else %>
+    <p>There are no organisations in the database!</p>
+    <p>Please create and join one</p>
+    <p> <%= link_to "Create and Join an organisation", new_organisation_path %>
+<% end %>
+
+<p> (Note: view shifts allows the user to view the shifts as required and would be transferred to inside the organisation list) </p>
 <p> <%= link_to "View Shifts", user_shifts_path(@user) %>
-<p> Else </p>
-<p> Future code/form to Create and Join an organisation </p>
